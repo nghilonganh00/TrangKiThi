@@ -1,0 +1,53 @@
+.prev-page {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.prev-page:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #cc0d00;
+}
+
+.manage-exam-area {
+  width: 80vw;
+  padding: 20px;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.manage-general-box {
+  width: 40%;
+  height: 170px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.manage-general-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.question-box:hover {
+  cursor: pointer;
+  background-color: #f0f2f5;
+}
+
+.manage-list-answer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.edit-answer {
+  width: 92%;
+  height: 100px;
+}
+
+.edit-popup-button {
+  padding: 8px 20px;
+}

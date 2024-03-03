@@ -1,0 +1,20 @@
+{
+  "1": {
+    "examName": "Giữa kì môn Triết học",
+    "examType": "Tự do",
+    "examDescription": "",
+    "examCreatedAt": "29-2-2024",
+    "examListQuestion": {
+      "1": {
+        "topic": "Nguyễn Ái Quốc gởi bản “Yêu sách của nhân dân An Nam” tới Hội nghị Vecxay vào ngày tháng năm nào?",
+        "listAnswer": {
+          "A": "Donald Trump",
+          "B": "Joe Biden",
+          "C": "Barack Obama",
+          "D": "George Washington"
+        },
+        "correctAnswer": "A"
+      }
+    }
+  }
+}

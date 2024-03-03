@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./exam.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="./main.js"></script>
+    <title>Hệ thống quản lý</title>
+  </head>
+  <body>
+    <div class="page create-exam">
+      <header>
+        <div class="header-container">
+          <img class="logo" src="./favicon.ico" />
+          <h1>PTIT S-LINK</h1>
+        </div>
+      </header>
+      <div class="body">
+        <nav class="menu">
+          <div class="menu-item">
+            <span>Dashboard</span>
+          </div>
+          <div
+            class="menu-item active"
+            onclick="redirectToNewPage('exam.html')"
+          >
+            <span>Quản lý kỳ thi</span>
+          </div>
+          <div class="menu-item">
+            <span>Quản lý Sinh viên</span>
+          </div>
+          <div class="menu-item">
+            <span>Thống kê</span>
+          </div>
+        </nav>
+        <main>
+          <div class="main-container">
+            <div class="main-label">
+              <span class="prev-page" onclick="redirectToNewPage('exam.html')"
+                >Quản lý kì thi</span
+              >
+              <span style="font-size: 26px; font-weight: 600; color: #cc0d00">
+                /
+              </span>
+              <span style="font-size: 20px; font-weight: 600">Thêm mới</span>
+            </div>
+
+            <div class="main-content">
+              <div class="create-exam-area">
+                <div class="create-exam-form">
+                  <form action="">
+                    <div
+                      class="input-row"
+                      style="display: flex; align-items: center; gap: 40px"
+                    >
+                      <div style="width: 40%">
+                        <div class="input-label">
+                          <label for="examName">Tên kì thi</label>
+                        </div>
+                        <input
+                          type="text"
+                          id="exam-name"
+                          class="create-exam-input"
+                          placeholder="Tên kì thi"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div>
+                        <div class="input-label">
+                          <label for="examName">Loại</label>
+                        </div>
+                        <!-- <input
+                          type=""
+                          id="exam-name"
+                          class="create-exam-input"
+                          placeholder="Loại"
+                        /> -->
+                        <select
+                          name="selectType"
+                          id="exam-type"
+                          class="edit-select-type"
+                        >
+                          <option value="Tự do">Tự do</option>
+                          <option value="Thời gian cụ thể">
+                            Thời gian cụ thể
+                          </option>
+                        </select>
+                      </div>
+                      <div>
+                        <div class="input-label">
+                          <label for="examName">Ngày mở</label>
+                        </div>
+                        <input
+                          type="date"
+                          id="exam-time"
+                          class="create-exam-input"
+                          placeholder="Ngày mở"
+                          style="width: 100%"
+                        />
+                      </div>
+                    </div>
+                    <div class="input-row">
+                      <div class="input-label">
+                        <label for="examName" class="create-exam-label"
+                          >Mô tả</label
+                        >
+                      </div>
+                      <textarea
+                        class="description-input"
+                        id="exam-description"
+                        name=""
+                        spellcheck="false"
+                      ></textarea>
+                    </div>
+                    <div class="input-row">
+                      <div class="input-label">
+                        <label for="examName" class="create-exam-label"
+                          >Danh sách câu hỏi</label
+                        >
+                      </div>
+                      <input
+                        id="create-file-input"
+                        type="file"
+                        accept=".xlsx, .xls"
+                      />
+                      <div class="button" onclick="addQuestionByFile()">
+                        Đọc
+                      </div>
+                      <div
+                        class="list-question-box"
+                        id="list-question-box"
+                      ></div>
+                      <div class="create-question-input">
+                        <textarea
+                          type="text"
+                          class="create-exam-input topic-input"
+                          placeholder="Câu hỏi"
+                          id="topic-input"
+                          spellcheck="false"
+                        ></textarea>
+                        <div class="list-answer-input">
+                          <textarea
+                            type="text"
+                            class="create-exam-input"
+                            id="answer-a-input"
+                            placeholder="Đáp án A"
+                            spellcheck="false"
+                          ></textarea>
+                          <input
+                            type="text"
+                            class="create-exam-input"
+                            id="answer-b-input"
+                            placeholder="Đáp án B"
+                          />
+                          <input
+                            type="text"
+                            class="create-exam-input"
+                            id="answer-c-input"
+                            placeholder="Đáp án C"
+                          />
+                          <input
+                            type="text"
+                            class="create-exam-input"
+                            id="answer-d-input"
+                            placeholder="Đáp án D"
+                          />
+                        </div>
+                      </div>
+
+                      <div
+                        class="button"
+                        id="create-question"
+                        onclick="addQuestionByManual()"
+                        style="margin-top: 20px"
+                      >
+                        Thêm câu hỏi
+                      </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: center">
+                      <div
+                        class="button"
+                        style="width: 52px"
+                        onclick="saveNewExam()"
+                      >
+                        Lưu
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./exam.css" />
+    <link rel="stylesheet" href="./manage-exam.css" />
+    <title>Hệ thống quản lý</title>
+  </head>
+  <body>
+    <div class="page create-exam">
+      <header>
+        <div class="header-container">
+          <img class="logo" src="./favicon.ico" />
+          <h1>PTIT S-LINK</h1>
+        </div>
+      </header>
+      <div class="body">
+        <nav class="menu">
+          <div class="menu-item">
+            <span>Dashboard</span>
+          </div>
+          <div
+            class="menu-item active"
+            onclick="redirectToNewPage('exam.html')"
+          >
+            <span>Quản lý kỳ thi</span>
+          </div>
+          <div class="menu-item">
+            <span>Quản lý Sinh viên</span>
+          </div>
+          <div class="menu-item">
+            <span>Thống kê</span>
+          </div>
+        </nav>
+        <main>
+          <div class="main-container">
+            <div class="main-label">
+              <span class="prev-page" onclick="redirectToNewPage('exam.html')"
+                >Quản lý kì thi</span
+              >
+              <span style="font-size: 26px; font-weight: 600; color: #cc0d00">
+                /
+              </span>
+              <span
+                style="font-size: 20px; font-weight: 600"
+                id="manage-exam-name"
+                >Giữa kì môn Lập trình web</span
+              >
+            </div>
+            <div class="manage-exam-area">
+              <div class="manage-general">
+                <div><span class="larger-bold-font">Thông tin chung</span></div>
+                <div class="manage-general-box large-normal-font">
+                  <div class="manage-general-row">
+                    <span>Tên kì thi: </span
+                    ><span id="manage-general-exam-name"></span>
+                  </div>
+                  <div class="manage-general-row">
+                    <span>Loại kì thi: </span
+                    ><span id="manage-exam-type"></span>
+                  </div>
+                  <div class="manage-general-row">
+                    <span>Thời gian thi: </span
+                    ><span id="manage-exam-time"></span>
+                  </div>
+                  <div class="manage-general-row">
+                    <span>Số câu hỏi: </span
+                    ><span id="manage-exam-question-total"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="manage-questions">
+                <h3>Danh sách câu hỏi</h3>
+                <div
+                  class="manage-quetion-content"
+                  id="manage-quetion-content"
+                ></div>
+              </div>
+              <div class="line-button" onclick="delExam()">Xoá kì thi</div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div id="popup">
+        <div class="popup-container">
+          <div class="popup-close-btn" onclick="closePopUp()">x</div>
+          <div class="create-question-input">
+            <textarea
+              type="text"
+              class="create-exam-input topic-input"
+              placeholder="Câu hỏi"
+              id="edit-topic-input"
+              spellcheck="false"
+            ></textarea>
+            <div class="list-answer-input">
+              <label class="answer">
+                <input type="radio" name="edit-answer" value="A" />
+                <textarea
+                  type="text"
+                  class="create-exam-input edit-answer"
+                  id="edit-answer-a-input"
+                  placeholder="Đáp án A"
+                  spellcheck="false"
+                ></textarea>
+              </label>
+              <label class="answer">
+                <input type="radio" name="edit-answer" value="B" />
+                <textarea
+                  type="text"
+                  class="create-exam-input edit-answer"
+                  id="edit-answer-b-input"
+                  placeholder="Đáp án B"
+                  spellcheck="false"
+                ></textarea>
+              </label>
+
+              <label class="answer">
+                <input type="radio" name="edit-answer" value="C" />
+                <textarea
+                  type="text"
+                  class="create-exam-input edit-answer"
+                  id="edit-answer-c-input"
+                  placeholder="Đáp án C"
+                  spellcheck="false"
+                ></textarea>
+              </label>
+              <label class="answer">
+                <input type="radio" name="edit-answer" value="D" />
+                <textarea
+                  type="text"
+                  class="create-exam-input edit-answer"
+                  id="edit-answer-d-input"
+                  placeholder="Đáp án D"
+                  spellcheck="false"
+                ></textarea>
+              </label>
+            </div>
+          </div>
+          <div class="popup-actions">
+            <div class="button" id="popup-del-question">Xóa</div>
+            <div class="button" id="popup-save-question">Lưu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+    <script>
+      const examId = new URLSearchParams(window.location.search).get("id");
+      document.addEventListener("DOMContentLoaded", loadManageExamPage(examId));
+    </script>
+  </body>
+</html>
